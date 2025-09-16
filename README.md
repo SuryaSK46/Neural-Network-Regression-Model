@@ -43,8 +43,8 @@ Plot the performance plot
 Evaluate the model with the testing data.
 
 ## PROGRAM
-### Name: Cynthia Mehul J
-### Register Number: 212223240020
+### Name: Surya SK
+### Register Number: 212222100052
 
 ```python
 import pandas as pd
