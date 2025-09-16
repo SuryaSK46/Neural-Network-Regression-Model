@@ -89,7 +89,7 @@ def train_model(Surya_brain=_brain,x_train,y_train,criterion,optimizer,epochs=20
 
 ### New Sample Data Prediction
 
-<img width="1188" height="151" alt="Screenshot 2025-09-16 112630" src="https://github.com/user-attachments/assets/e6af2356-a1aa-4aba-89fb-7a7f9f59450a" />
+<img width="994" height="143" alt="Screenshot 2025-09-16 113736" src="https://github.com/user-attachments/assets/a61c9656-6573-4e2c-b756-b575b67f8990" />
 
 ## RESULT
 The program to develop a neural network regression model for the given dataset has been executed successively
