@@ -10,8 +10,7 @@ The objective of this project is to develop a Neural Network Regression Model th
 
 ## Neural Network Model
 
-![Screenshot (192)](https://github.com/user-attachments/assets/96239300-e19a-424f-86a3-d69fd50f444d)
-
+![image](https://github.com/user-attachments/assets/02addad9-4ed2-496c-8d9f-91772d76c585)
 
 ## DESIGN STEPS
 
@@ -50,47 +49,50 @@ Evaluate the model with the testing data.
 class NeuralNet(nn.Module):
   def __init__(self):
         super().__init__()
-        self.fc1=nn.Linear(1,8)
-        self.fc2=nn.Linear(8,10)
-        self.fc3=nn.Linear(10,1)
-        self.relu=nn.ReLU()
-        self.history={'loss':[]}
-  def forward(self,x):
-    x=self.relu(self.fc1(x))
-    x=self.relu(self.fc2(x))
-    x=self.fc3(x)
-    return x
+        self.fc1 = nn.Linear(1, 8)
+        self.fc2 = nn.Linear(8, 12)
+        self.fc3 = nn.Linear(12, 1)
+        self.relu = nn.ReLU()
+        self.history = {'loss': []}
+  def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x= self.relu(self.fc2(x))
+        x= self.fc3(x) # No activation here since it's a regression task
+        return x
+
+
+
+# Initialize the Model, Loss Function, and Optimizer
 
 ai_brain = NeuralNet()
 criterion = nn.MSELoss()
-optimizer = optim.RMSprop(ai_brain.parameters(), lr=0.001)
+optimizer = optim. RMSprop(ai_brain.parameters(), lr=0.001)
 
-def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
-    for epoch in range(epochs):
-        optimizer.zero_grad()
-        loss = criterion(ai_brain(X_train), y_train)
-        loss.backward()
-        optimizer.step()
+def train_model (ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
+  for epoch in range(epochs):
+    optimizer.zero_grad()
+    loss = criterion (ai_brain (X_train), y_train)
+    loss.backward()
+    optimizer.step()
 
-        ai_brain.history['loss'].append(loss.item())
-        if epoch % 200 == 0:
-            print(f'Epoch [{epoch}/{epochs}], Loss: {loss.item():.6f}')
-train_model(ai_brain, X_train_tensor, y_train_tensor, criterion, optimizer)
-
-
-
+    ai_brain.history['loss'].append(loss.item())
+    if epoch % 200 == 0:
+      print(f'Epoch [{epoch}/{epochs}], Loss: {loss.item():.6f}')
 ```
 ## Dataset Information
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/b8c78fcc-a39d-4e4a-9991-d2ff791f1553)
 
 ## OUTPUT
 
 ### Training Loss Vs Iteration Plot
 
-![alt text](image1.png)
+![image](https://github.com/user-attachments/assets/8d8a24bf-72cd-41f9-b4b7-0157f3576e24)
+
 ### New Sample Data Prediction
 
-![alt text](image3.png)
+![image](https://github.com/user-attachments/assets/707792f4-792f-429b-885a-eeff5f5c5c62)
+
 ## RESULT
-The neural network regression model was successfully trained and evaluated. The model demonstrated strong predictive performance on unseen data, with a low error rate.
+
+The neural network regression model was successfully trained and evaluated. The model demonstrated strong predictive performance on unseen data, with a low error rate
